@@ -1,10 +1,16 @@
 package br.com.fiapride.model;
 
 public class Garrafa {
-	public int tamanhoCm;
-    public int capacidadeMaxMl;
+	private int tamanhoCm;
+    private int capacidadeMaxMl;
     public String liquido;
     public boolean estaAberta = false;
+    
+    public Garrafa(int tamanhoCm, int capacidadeMaxMl, String liquido) {
+    	this.setTamanhoCm(tamanhoCm);
+    	this.setCapacidadeMaxMl(capacidadeMaxMl);
+    	this.liquido = liquido;
+    }
     
     public void abrir() {
         this.estaAberta = true;
@@ -20,5 +26,30 @@ public class Garrafa {
         } else {
             System.out.println("Você bateu os dentes contra a tampa da garrafa");
         }
+    }
+    
+    public int getTamanho() {
+    	return this.tamanhoCm; 
+    }
+    
+    public int getCapacidade() {
+    	return this.capacidadeMaxMl;
+    }
+    
+    private void setTamanhoCm(int tamanhoCm) {
+    	if (tamanhoCm < 0) {
+    		System.out.println("Tamanho inválido!");
+    		return;
+    	}
+    	
+    	this.tamanhoCm = tamanhoCm;
+    }
+    
+    private void setCapacidadeMaxMl(int capacidadeMaxMl) {
+    	if (capacidadeMaxMl < 0) {
+    		System.out.println("Capacidade inválida!");
+    		return;
+    	}
+    	this.capacidadeMaxMl = capacidadeMaxMl;
     }
 }
