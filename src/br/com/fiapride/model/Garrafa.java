@@ -3,10 +3,10 @@ package br.com.fiapride.model;
 public class Garrafa {
 	private int tamanhoCm;
     private int capacidadeMaxMl;
-    public String liquido;
+    public Liquido liquido;
     public boolean estaAberta = false;
     
-    public Garrafa(int tamanhoCm, int capacidadeMaxMl, String liquido) {
+    public Garrafa(int tamanhoCm, int capacidadeMaxMl, Liquido liquido) {
     	this.setTamanhoCm(tamanhoCm);
     	this.setCapacidadeMaxMl(capacidadeMaxMl);
     	this.liquido = liquido;
