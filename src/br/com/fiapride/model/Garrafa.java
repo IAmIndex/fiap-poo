@@ -1,10 +1,12 @@
 package br.com.fiapride.model;
 
 public class Garrafa {
-	private int tamanhoCm;
-    private int capacidadeMaxMl;
-    public Liquido liquido;
+	protected int tamanhoCm;
+    protected int capacidadeMaxMl;
+    protected Liquido liquido;
     public boolean estaAberta = false;
+
+    final private double constanteResfriamento = 1; 
     
     public Garrafa(int tamanhoCm, int capacidadeMaxMl, Liquido liquido) {
     	this.setTamanhoCm(tamanhoCm);
@@ -36,6 +38,10 @@ public class Garrafa {
     	return this.capacidadeMaxMl;
     }
     
+    public void variarTemperatura(double temperaturaAmbiente, double tempoPassadoHora) {
+    	this.liquido.setTemperatura(temperaturaAmbiente, tempoPassadoHora, this.constanteResfriamento);
+    }
+    
     private void setTamanhoCm(int tamanhoCm) {
     	if (tamanhoCm < 0) {
     		System.out.println("Tamanho inválido!");
@@ -51,5 +57,15 @@ public class Garrafa {
     		return;
     	}
     	this.capacidadeMaxMl = capacidadeMaxMl;
+    }
+    
+    public Liquido getLiquido() {
+    	return this.liquido;
+    }
+    
+    public void setLiquido(Liquido novoLiquido) {
+    	// Aqui viria uma lógica para verificar se a garrafa está vazia, mas como não valido isso,
+    	// decidi manter de fora e apenas definir um set padrão
+    	this.liquido = novoLiquido;
     }
 }
